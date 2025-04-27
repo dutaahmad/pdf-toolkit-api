@@ -28,6 +28,29 @@ yarn start:dev
 
 ## 📦 API Endpoints
 
+### `POST /image-to-pdf`
+
+Convert images to a PDFs.
+
+#### Request
+
+- `Content-Type: multipart/form-data`
+- Body fields:
+  - `images`: Images to convert to a single PDF file (can upload multiple)
+
+#### Example `curl` request
+
+```bash
+curl --location 'http://localhost:9999/image-to-pdf' \
+--form 'images=@"/C:/Users/ThinkPad/Downloads/image1.jpg"' \
+--form 'images=@"/C:/Users/ThinkPad/Downloads/image2.jpg"' \
+--form 'images=@"/C:/Users/ThinkPad/Downloads/image3.jpg"'
+```
+
+#### Response
+
+- Returns the PDF file result as a downloadable stream.
+
 ### `POST /merge-pdf`
 
 Merge multiple PDF files into a single PDF in the specified order.
@@ -79,7 +102,8 @@ MIT License. Feel free to use it in personal and commercial projects.
 
 ### 📌 Roadmap
 
-- [ ] Add support for image-to-PDF
+- [:heavy_check_mark:] Add Merge PDFs functionality
+- [:heavy_check_mark:] Add support for image-to-PDF
 - [ ] Add PDF-to-image export
 - [ ] Add PDF signature functionality
 - [ ] Add form-filling support
